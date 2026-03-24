@@ -1,0 +1,580 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@200;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mitr:wght@200;400;500;700&display=swap");
+
+:root {
+  /*General*/
+  /* DatePicker */
+  --dp-font-family: "Prompt", sans-serif !important;
+  --dp-border-radius: 10px !important; /*Configurable border-radius*/
+  --dp-common-padding: 16px !important; /*Common padding used*/
+  --dp-input-padding: 9px 30px 9px 12px !important; /*Padding in the input*/
+  --dp-action-button-height: 30px !important;
+  /*Font sizes*/
+  --dp-font-size: 16px !important; /*Default font-size*/
+
+  --fc-border-color: transparent;
+  --fc-button-bg-color: transparent;
+  --fc-button-text-color: #252525;
+  --fc-button-border-color: transparent;
+  --fc-button-hover-bg-color: #82828240;
+  --fc-button-hover-border-color: #82828240;
+  --fc-button-active-bg-color: #8282822b;
+  --fc-button-active-border-color: #8282822b;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  background: #fafafa;
+}
+
+input,
+select,
+textarea,
+GMapAutocomplete {
+  @apply !border-[#cbd5e1];
+}
+
+.dp__theme_light {
+  --dp-border-color: #acafb6 !important;
+}
+
+.dp__action_select {
+  background: var(--dp-primary-color) !important;
+}
+
+.dp__menu.dp__menu_index {
+  overflow: hidden !important;
+}
+
+* {
+  font-family: "Prompt", sans-serif;
+}
+
+img {
+  max-width: none;
+}
+
+.tab {
+  border-radius: 17% 46% 0% 10% / 41% 100% 10% 0%;
+}
+
+/* input[type="text"],
+select {
+  border-color: #ddd;
+  background-color: #fff;
+} */
+
+/* for accordion */
+.rotate {
+  transform: rotate(0deg) !important;
+}
+
+.rotateOrigin {
+  transform: rotate(180deg) !important;
+}
+
+select,
+select option {
+  color: #1a3c54;
+}
+
+select:invalid,
+select option[value=""] {
+  color: rgba(156, 163, 175, 1);
+}
+
+/* toggle */
+.toggle-on-disabled {
+  background: #36a1ea !important;
+  border-color: #36a1ea !important;
+}
+
+/* Vue Calendar */
+
+.vc-day {
+  min-height: 60px !important;
+}
+
+.vc-header.is-lg {
+  margin: 1.6em 0 !important;
+}
+
+.vc-container {
+  background-color: transparent !important;
+  /* padding: 10px 10px 0 10px; */
+}
+
+.vc-title span {
+  background-color: #fff;
+  font-size: 2rem;
+  font-weight: 500 !important;
+  font-family: "Prompt", sans-serif !important;
+}
+
+.vc-pane {
+  min-width: none !important;
+}
+
+.vc-highlight.vc-highlight-base-start,
+.vc-highlight.vc-highlight-base-middle,
+.vc-highlight.vc-highlight-base-end {
+  height: 64px !important;
+}
+
+.vc-highlight-bg-solid {
+  padding: 28.5px !important;
+}
+
+.vc-today .vc-highlight-bg-outline {
+  border: 4px solid var(--vc-highlight-outline-border);
+  padding: 24px !important;
+}
+
+.vc-day-content {
+  width: 57px !important;
+  height: 57px !important;
+  font-weight: var(--vc-font-medium);
+  font-family: "Prompt";
+}
+
+.vc-holiday {
+  --vc-accent-300: #f99 !important;
+  --vc-accent-600: #f56666 !important;
+}
+
+.vc-sick_leave {
+  --vc-accent-600: #ffc773 !important;
+  --vc-accent-700: #1a3c54 !important;
+}
+
+.vc-personal_leave {
+  --vc-accent-600: #b6d5ff !important;
+  --vc-accent-700: #0369a1 !important;
+}
+
+.vc-special_leave {
+  --vc-accent-600: #ffa857 !important;
+  --vc-accent-700: #1a3c54 !important;
+}
+
+.vc-summer_leave {
+  --vc-accent-600: #9ce452 !important;
+  --vc-accent-700: #1a3c54 !important;
+}
+
+.vc-withoutpay_leave {
+  --vc-accent-600: #acafb6 !important;
+  --vc-accent-700: #1a3c54 !important;
+}
+
+.vc-light {
+  --vc-color: #1a3c54 !important;
+}
+
+.vc-today {
+  --vc-accent-600: #1a3c54 !important;
+  --vc-accent-700: #1a3c54 !important;
+}
+
+.vc-weeks {
+  padding-bottom: 4px;
+}
+
+.vc-weekday-1,
+.weekday-1 {
+  color: #ff3c44 !important;
+}
+
+.vc-weekdays {
+  background: #e7f0fc;
+  padding: 1px 0;
+}
+
+.vc-weekday {
+  color: #1a3c54;
+  font-weight: var(--vc-font-medium) !important;
+  padding: 8px 0px !important;
+}
+
+.myEvent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+}
+
+.personal_leave {
+  z-index: 1;
+  border: none;
+  font-weight: semibold;
+  background-color: #b6d5ff !important;
+  color: #fff;
+  cursor: pointer;
+}
+
+.summer_leave {
+  z-index: 11;
+  border: none;
+  font-weight: semibold;
+  background-color: #9ce452 !important;
+  color: #fff;
+  cursor: pointer;
+}
+
+.special_leave {
+  z-index: 11;
+  border: 4px solid #ffa857 !important;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.sick_leave {
+  z-index: 1;
+  border: none;
+  font-weight: semibold;
+  background-color: #ffc773 !important;
+  color: #fff;
+  cursor: pointer;
+}
+
+.withoutpay_leave {
+  z-index: 1;
+  border: none;
+  font-weight: semibold;
+  background-color: #acafb6 !important;
+  cursor: pointer;
+}
+
+.today {
+  z-index: 1;
+  color: #1a3c54;
+  border: 4px solid #1a3c54 !important;
+  background-color: transparent !important;
+  border-radius: 100% !important;
+  font-weight: semibold;
+  cursor: pointer;
+}
+
+.holiday {
+  z-index: 1;
+  border: none;
+  font-weight: semibold;
+  background-color: #f56666 !important;
+  color: #fff;
+  cursor: pointer;
+}
+
+.connector.start {
+  position: absolute;
+  opacity: 40%;
+  height: 3rem;
+  width: 50%;
+  top: 50%;
+  translate: 0 -50%;
+  right: 0;
+}
+
+.connector.end {
+  position: absolute;
+  opacity: 40%;
+  height: 3rem;
+  width: 50%;
+  top: 50%;
+  translate: 0 -50%;
+  left: 0;
+}
+
+.connector.between {
+  position: absolute;
+  opacity: 40%;
+  height: 3rem;
+  width: 100%;
+  top: 50%;
+  translate: 0 -50%;
+  left: 0;
+}
+
+.popOverClass {
+  position: absolute;
+  z-index: 10;
+  visibility: hidden;
+  display: inline-block;
+  width: 16rem;
+  font-size: 18px;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.fc-sticky {
+  position: absolute;
+}
+
+.fc-h-event {
+  border: none !important;
+}
+
+.fc-day-sun {
+  color: #ff0000;
+}
+
+.fc th {
+  font-weight: 400;
+}
+
+.fc .fc-cell-shaded,
+.fc .fc-day-disabled {
+  visibility: hidden;
+}
+
+.fc-daygrid-day-events {
+  display: none;
+}
+
+.fc-scrollgrid-section-header th div.fc-scroller-harness .fc-scroller {
+  overflow: hidden !important;
+}
+
+.fc-timegrid.fc-timeGridWeek-view.fc-view.fc-k,
+.fc-timegrid.fc-timeGridDay-view.fc-view.fc-k,
+.fc .fc-scroller-harness {
+  overflow: visible !important;
+}
+
+.dashboard-calendar .fc-scroller.fc-scroller-liquid-absolute {
+  overflow: unset !important;
+}
+
+.fc-scroller.fc-scroller-liquid-absolute::-webkit-scrollbar {
+  width: 7px;
+}
+
+.fc .fc-highlight {
+  background: var(--fc-highlight-color);
+  border-radius: 100% !important;
+}
+
+.fc .fc-daygrid-daynumber {
+  cursor: pointer;
+}
+
+.fc .fc-daygrid-event {
+  margin-top: 1px;
+  z-index: 0;
+}
+
+.fc .fc-daygrid-day-bg .fc-highlight {
+  z-index: -1;
+}
+
+.fc .fc-daygrid-bg-harness {
+  position: absolute;
+}
+
+.fc .fc-daygrid-day-frame {
+  min-height: 0;
+  height: 100%;
+  padding: 0px;
+  position: relative;
+}
+
+.fc .fc-daygrid-day-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.fc .fc-daygrid-day.fc-day {
+  background-color: transparent !important;
+  position: relative;
+  vertical-align: middle;
+}
+
+.fc-daygrid-day-frame.fc-scrollgrid-sync-inner {
+  margin: auto;
+}
+
+.fc-timegrid-axis-cushion.fc-scrollgrid-shrink-cushion.fc-scrollgrid-sync-inner {
+  font-weight: 500;
+}
+
+a#fc-dom-184.fc.fc-daygrid-day-number {
+  border: 1px solid #b6d5ff;
+  padding: 12px;
+  position: relative;
+  z-index: 4;
+  background-color: #b6d5ff;
+  width: 100%;
+  text-align: center;
+  border-radius: 100% !important;
+}
+
+.fc td,
+.fc th {
+  vertical-align: middle;
+}
+
+.fc tbody tr.fc-scrollgrid-section-body div div div table tbody tr {
+  height: 3rem !important;
+}
+
+.fc
+  tbody
+  tr.fc-scrollgrid-section.fc-scrollgrid-section-header
+  th
+  div
+  div
+  table.fc-col-header
+  thead {
+  height: 2rem !important;
+
+  tr th.fc-col-header-cell {
+    vertical-align: middle;
+  }
+}
+
+.fc-theme-standard td {
+  border: none !important;
+}
+
+.fc .fc-button-primary:disabled {
+  text-transform: capitalize;
+}
+.fc .fc-daygrid-day-top {
+  display: flex;
+  justify-content: center;
+}
+
+.fc .fc-toolbar-title {
+  font-weight: 500;
+}
+
+.fc-col-header {
+  background-color: aliceblue;
+}
+
+.fc .fc-button-primary:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.fc-col-header-cell.fc-day.fc-day-sun
+  .fc-scrollgrid-sync-inner
+  .fc-col-header-cell-cushion {
+  color: red;
+}
+
+.fc-col-header-cell-cushion {
+  text-wrap: nowrap;
+  padding: 6px 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.fc-daygrid-day-number {
+  cursor: pointer;
+}
+
+table[role="grid"] tr[role="row"],
+table[role="grid"] tr {
+  font-size: 14px;
+}
+
+.popoverTrigger::-webkit-scrollbar {
+  height: 2px;
+  width: 5px;
+}
+
+.fc-timegrid.fc-timeGridWeek-view.fc-view,
+.fc-timegrid.fc-timeGridDay-view.fc-view {
+  overflow: auto !important;
+  height: 20rem;
+}
+
+/* Pagination */
+.Pagination {
+  background: #e7f0fc !important;
+  padding: 4px !important;
+  border-radius: 999999px;
+}
+
+.PaginationControl {
+  border-radius: 100% !important;
+  background: white !important;
+}
+.Page-active {
+  border: none !important;
+  outline: none !important;
+  color: #028ee6 !important;
+  font-weight: bold;
+}
+
+.Page:hover,
+.Page-active:hover {
+  border: none !important;
+  outline: none !important;
+}
+
+.Control {
+  width: 30px !important;
+  height: 34px !important;
+}
+.Control-active {
+  fill: #028ee6 !important;
+}
+
+.boxShadow {
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* input,
+select {
+  border-color: #6b7280;
+} */
+
+input:focus {
+  @apply !border-muted;
+}
+
+input::placeholder {
+  color: #acafb6;
+  opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder {
+  /* Edge 12 -18 */
+  color: #acafb6;
+}
+
+small,
+em {
+  color: #f56666;
+}
+
+.fc-icon.fc-icon-chevron-left,
+.fc-icon.fc-icon-chevron-right {
+  color: #acafb6;
+}
+
+@media only screen and (max-width: 640px) {
+  :root {
+    --dp-input-padding: 8px 8px 8px 35px !important;
+  }
+  .myEvent {
+    height: 90%;
+  }
+  .boxShadow {
+    box-shadow: none;
+  }
+}

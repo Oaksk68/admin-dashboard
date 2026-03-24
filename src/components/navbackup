@@ -1,0 +1,36 @@
+<div class="relative" data-te-dropdown-ref>
+  <button
+    class="shadow-lg border-2 flex items-center whitespace-nowrap rounded-large pl-6 pr-11 pb-2 pt-2.5 text-sm font-normal leading-normal transition duration-150 ease-in-out hover:bg-sky-200"
+    type="button"
+    id="dropdownMenuButton1"
+    data-te-dropdown-toggle-ref
+    aria-expanded="false"
+    data-te-ripple-init
+    data-te-ripple-color="light"
+    @click="isActive = !isActive"
+  >
+    <img class="mr-3" src="../assets/images/thai.png" alt="" />
+    ภาษาไทย
+    <font-awesome-icon
+      class="text-sm absolute left-36 top-4"
+      icon="fa-solid fa-caret-down"
+    />
+  </button>
+  <ul
+    v-if="isActive"
+    class="absolute z-[1000] float-left m-0 min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg"
+    aria-labelledby="dropdownMenuButton1"
+    data-te-dropdown-menu-ref
+  >
+    <li class="w-51">
+      <a
+        class="flex justify-evenly w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal hover:bg-neutral-100 active:no-underline disabled:pointer-events-none disabled:bg-transparent"
+        href="#"
+        data-te-dropdown-item-ref
+      >
+        <img src="../assets/images/eng.png" alt="" />
+        English</a
+      >
+    </li>
+  </ul>
+</div>

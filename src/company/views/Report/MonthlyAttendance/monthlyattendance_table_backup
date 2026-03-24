@@ -1,0 +1,91 @@
+<table class="w-full text-sm text-left text-primary">
+  <thead class="text-md text-primary bg-calendarBg text-center">
+    <tr>
+      <th scope="col" class="px-2 py-2 font-medium rounded-l-full">{{ $t('no.') }}</th>
+      <th scope="col" class="px-2 py-2 font-medium">{{ $t('name') }}</th>
+      <table class="w-full">
+        <tr>
+          <th scope="col" class="px-2 py-2 font-medium">วันที่</th>
+          <th scope="col" class="px-2 py-2 font-medium">เวลา <br />เข้างาน</th>
+          <th scope="col" class="px-2 py-2 font-medium">
+            ลง{{ $t('name') }} <br />เข้างาน
+          </th>
+          <th scope="col" class="px-2 py-2 font-medium bg-red-200">สถานะ</th>
+          <th scope="col" class="px-2 py-2 font-medium bg-red-200">คะแนน</th>
+          <th scope="col" class="px-2 py-2 font-medium bg-red-200">{{$t('personalLeave')}}</th>
+          <th scope="col" class="px-2 py-2 font-medium bg-red-200">{{$t('sickLeave')}}</th>
+          <th scope="col" class="px-2 py-2 font-medium bg-red-200">{{$t('summerLeave')}}</th>
+          <th scope="col" class="px-2 py-2 font-medium bg-red-200">{{$t('specialLeave')}}</th>
+          <th
+            scope="col"
+            class="px-2 py-2 font-medium bg-red-200 rounded-r-full"
+          >
+            ลาไม่รับ <br />
+            ค่าจ้าง
+          </th>
+        </tr>
+      </table>
+    </tr>
+  </thead>
+  <tbody class="text-center align-text-top my-4">
+    <tr
+      v-for="(item, index) in tableData"
+      :key="index"
+      :class="index % 2 == 0 ? 'bg-teal-50' : 'bg-calendarBg'"
+    >
+      <td scope="col" class="px-2 py-4">{{ +(+index) }}</td>
+      <td scope="col" class="px-2 py-4 text-start whitespace-nowrap">
+        {{ item.fullname }}
+      </td>
+      <table class="w-full">
+        <tr v-for="(atten, index) in item.monthly_attend" :key="index">
+          <td class="px-2 py-3">
+            {{ this.$moment(atten.date).format("DD/MM/YY") }}
+          </td>
+          <td class="px-2 py-3">
+            {{ this.$moment(atten.shift_start).format("DD/MM/YY") }}
+          </td>
+
+          <td class="px-2 py-3">
+            {{ this.$moment(atten.stamp_in).format("HH:mm") }}
+          </td>
+
+          <td class="px-2 py-[0.71rem]">
+            <font-awesome-icon
+              :class="
+                        atten.is_stamp_out == 1
+                          ? 'text-lime-400'
+                          : 'text-red-500'
+                      "
+              :icon="
+                        atten.is_stamp_out == 1
+                          ? 'fa-solid fa-square-check'
+                          : 'fa-solid fa-square-xmark'
+                      "
+              size="xl"
+            />
+          </td>
+
+          <td class="px-2 py-3">
+            {{ atten.point }}
+          </td>
+          <td class="px-2 py-3">
+            {{ Math.ceil(item.personal_leave) }}
+          </td>
+          <td class="px-2 py-3">
+            {{ Math.ceil(item.sick_leave) }}
+          </td>
+          <td class="px-2 py-3">
+            {{ Math.ceil(item.summer_leave) }}
+          </td>
+          <td class="px-2 py-3">
+            {{ Math.ceil(item.special_leave) }}
+          </td>
+          <td class="px-2 py-3">
+            {{ Math.ceil(item.withoutpay_leave) }}
+          </td>
+        </tr>
+      </table>
+    </tr>
+  </tbody>
+</table>
